@@ -1,8 +1,0 @@
-apiVersion: v1
-kind: Namespace
-metadata:
-  name: static-site
-  annotations:
-    openshift.io/node-selector: ""
-  labels:
-    name: static-site
