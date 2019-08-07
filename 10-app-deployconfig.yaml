@@ -4,7 +4,7 @@ metadata:
   labels:
     app: frontend
   name: frontend
-  namespace: default
+  namespace: static-site
 spec:
   replicas: 1
   selector:
@@ -38,7 +38,7 @@ spec:
           terminationMessagePolicy: File
       dnsPolicy: ClusterFirst
       restartPolicy: Always
-      schedulerName: default-scheduler
+      schedulerName: static-site-scheduler
       securityContext: {}
       terminationGracePeriodSeconds: 30
   test: false

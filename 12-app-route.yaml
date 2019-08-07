@@ -1,0 +1,22 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  creationTimestamp: null
+  labels:
+    app: frontend
+  name: app
+  namespace: static-site
+spec:
+  port:
+    targetPort: 8080
+  subdomain: ""
+  tls:
+    insecureEdgeTerminationPolicy: Redirect
+    termination: edge
+  to:
+    kind: Service
+    name: frontend
+    weight: 100
+  wildcardPolicy: None
+status:
+  ingress: null

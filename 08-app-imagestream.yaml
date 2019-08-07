@@ -2,7 +2,7 @@ apiVersion: image.openshift.io/v1
 kind: ImageStream
 metadata:
   name: frontend
-  namespace: default
+  namespace: static-site
   labels:
     app: frontend
 spec:
