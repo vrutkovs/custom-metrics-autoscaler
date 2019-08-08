@@ -1,0 +1,14 @@
+apiVersion: autoscaling.openshift.io/v1beta1
+kind: MachineAutoscaler
+metadata:
+  finalizers:
+  - machinetarget.autoscaling.openshift.io
+  generation: 1
+  name: worker-us-east-1
+spec:
+  maxReplicas: 12
+  minReplicas: 1
+  scaleTargetRef:
+    apiVersion: machine.openshift.io/v1beta1
+    kind: MachineSet
+    name: vrutkovs-sdtc8-worker-us-east-2a
