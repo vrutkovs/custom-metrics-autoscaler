@@ -1,0 +1,17 @@
+kind: HorizontalPodAutoscaler
+apiVersion: autoscaling/v2beta1
+metadata:
+  name: connections-hpa
+  namespace: static-site
+spec:
+  scaleTargetRef:
+    kind: DeploymentConfig
+    name: frontend
+    apiVersion: apps.openshift.io/v1
+  minReplicas: 1
+  maxReplicas: 5
+  metrics:
+    - type: Pods
+      pods:
+        metricName: 'nginx_connections_per_second'
+        targetAverageValue: 50m
