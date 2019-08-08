@@ -9,12 +9,6 @@ spec:
   lookupPolicy:
     local: false
   tags:
-  - from:
-      kind: DockerImage
-      name: docker.io/centos/nginx-112-centos7
-    name: nginx1.12
-    referencePolicy:
-      type: Local
   - name: webserver
     referencePolicy:
       type: Source

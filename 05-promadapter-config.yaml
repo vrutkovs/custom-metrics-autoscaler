@@ -6,13 +6,13 @@ metadata:
 data:
   config.yaml: |
     rules:
-    - seriesQuery: 'http_requests_total{namespace!="",pod!=""}'
+    - seriesQuery: 'nginx_connections_handled{namespace!="",pod!=""}'
       resources:
         overrides:
           namespace: {resource: "namespace"}
           pod: {resource: "pod"}
           service: {resource: "service"}
       name:
-        matches: "^(.*)_total"
+        matches: "^(.*)_handled"
         as: "${1}_per_second"
-      metricsQuery: 'sum(rate(<<.Series>>{<<.LabelMatchers>>}[2m])) by (<<.GroupBy>>)'
+      metricsQuery: 'rate(<<.Series>>{<<.LabelMatchers>>}[2m])'
